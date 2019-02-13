@@ -3,7 +3,7 @@
 // 将大于该基准点的元素都放到其右边
 // 然后将剩下的两个子区间(左边和右边的)都按上述方法进行排序
 
-
+// 下面代码在leetcode215上测试了
 class Solution {
 public:
     int partition(vector<int> &nums, int p, int q){//以nums[q]为标准   将小于它的放左边  大于它的放右边

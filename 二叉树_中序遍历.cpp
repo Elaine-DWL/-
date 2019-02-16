@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    // 返回二叉树的先序遍历
+    // 返回二叉树的中序遍历
     void inorder(TreeNode *root, vector<int> &nums){
         if(root == nullptr) return;
         inorder(root->left, nums);
@@ -49,3 +49,21 @@ public:
         return res;
     }
 };
+
+// 非递归方法  这种方法和上面的写法等效   建议记忆这种方法
+vector<int> inorder(TreeNode *root){
+	vector<int> res;
+	TreeNode *cur = root;
+	stack<TreeNode *> s;
+	while(cur!=nullptr || !s.empty()){
+		while(cur!=nullptr){
+			s.push(cur);
+			cur = cur->left;
+		}
+		TreeNode *t = s.top();
+		s.pop();
+		res.push_back(t->val);
+		cur = cur->right;
+	}
+	return res;
+}
